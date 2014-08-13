@@ -54,6 +54,24 @@ See help (lbcp.py -h) for explanation of the different options.
 
 ==============
 
+Works on Linux, requires the following:
+
+1) Python 2.7
+
+2) Numpy
+
+3) Python Cryptography Toolkit (pycrypto)
+
+4) Boto
+
+5) Progressbar (text progressbar library for python)
+
+(And may be more packages - depends on your installation)
+
+License: GPLv2.
+
+==============
+
 
 Features not implemented yet:
 
