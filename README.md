@@ -24,6 +24,8 @@ lbcp.py backup \<path 1\> \<path 2\> \<path 3\>
 
 (If it is your first backup on a device, you also need to specify the credentials file location, -c)
 
+==============
+
 Restore:
 
 lbcp.py restore [-d DEVICE] [-c PATH] [--bucket BUCKET] [--credsenc] [--logpath PATH] RESTOREPATH [RESTOREPATH ...] SAVEPATH
