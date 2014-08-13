@@ -68,6 +68,8 @@ Works on Linux, requires the following:
 
 (And may be more packages - depends on your installation)
 
+==============
+
 License: GPLv2.
 
 ==============
