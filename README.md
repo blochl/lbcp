@@ -20,7 +20,7 @@ lbcp.py backup -e .directory -d MY-LAPTOP -c /path/to/creds.csv --bucket MY-BUCK
 
 Minimal options (you will be prompted for additional options, and default settings will be used):
 
-lbcp.py backup <path 1> <path 2> <path 3>
+lbcp.py backup \<path 1\> \<path 2\> \<path 3\>
 
 (If it is your first backup on a device, you also need to specify the credentials file location, -c)
 
