@@ -40,13 +40,19 @@ lbcp.py restore \<path 1\> \<path 2\> \<path 3\> \<WHERE TO SAVE THE RESTORE\>
 
 (If you are restoring to a different device, you also need to specify the credentials file location, -c)
 
+==============
+
 Encryption & Decryption (encrypt/decrypt one file locally):
 
 lbcp.py encrypt PLAINTEXT_FILE ENCRYPTED_FILE
 
 lbcp.py decrypt ENCRYPTED_FILE PLAINTEXT_FILE
 
-================
+==============
+
+See help (lbcp.py -h) for explanation of the different options.
+
+==============
 
 
 Features not implemented yet:
