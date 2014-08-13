@@ -16,7 +16,7 @@ lbcp.py backup [-e PATTERN [PATTERN ...]] [-d DEVICE] [-c PATH] [--bucket BUCKET
 
 For example:
 
-lbcp.py backup -e .directory -d MY-LAPTOP -c /path/to/creds.csv --bucket MY-BUCKET --oldlogbucket BUCKET-FOR-OLD-LOGS --geolocation EU --logpath /home/user/.lbcp <path 1> <path 2> <path 3>
+lbcp.py backup -e .directory -d MY-LAPTOP -c /path/to/creds.csv --bucket MY-BUCKET --oldlogbucket BUCKET-FOR-OLD-LOGS --geolocation EU --logpath /home/user/.lbcp \<path 1\> \<path 2\> \<path 3\>
 
 Minimal options (you will be prompted for additional options, and default settings will be used):
 
@@ -24,10 +24,27 @@ lbcp.py backup \<path 1\> \<path 2\> \<path 3\>
 
 (If it is your first backup on a device, you also need to specify the credentials file location, -c)
 
+Restore:
 
+lbcp.py restore [-d DEVICE] [-c PATH] [--bucket BUCKET] [--credsenc] [--logpath PATH] RESTOREPATH [RESTOREPATH ...] SAVEPATH
 
+For example:
 
+lbcp.py restore -d MY-LAPTOP -c /path/to/creds.csv --bucket MY-BUCKET --logpath /home/user/.lbcp \<path 1\> \<path 2\> \<path 3\> \<WHERE TO SAVE THE RESTORE\>
 
+Minimal options (you will be prompted for additional options, and default settings will be used):
+
+lbcp.py restore \<path 1\> \<path 2\> \<path 3\> \<WHERE TO SAVE THE RESTORE\>
+
+(If you are restoring to a different device, you also need to specify the credentials file location, -c)
+
+Encryption & Decryption (encrypt/decrypt one file locally):
+
+lbcp.py encrypt PLAINTEXT_FILE ENCRYPTED_FILE
+
+lbcp.py decrypt ENCRYPTED_FILE PLAINTEXT_FILE
+
+================
 
 
 Features not implemented yet:
