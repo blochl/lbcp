@@ -14,7 +14,11 @@ Backup
 
 
 Features not implemented yet:
+
 1) Search capabilities.
+
 2) Browsing the backed up directory tree.
+
 3) Deletion of backed-up files/directories.
+
 Since this is meant to serve as an additional backup (for the case that the local backup fails) these features are not crucial, but eventually I'd like to implement them.
