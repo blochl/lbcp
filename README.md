@@ -55,6 +55,8 @@ lbcp.py decrypt ENCRYPTED_FILE PLAINTEXT_FILE
 See help (lbcp.py -h) for explanation of the different options.
 
 ==============
+Details
+=======
 
 Works on Linux, requires the following:
 
@@ -76,8 +78,12 @@ License: GPLv2.
 
 ==============
 
+TODO's
+======
 
 Features not implemented yet:
+
+==============
 
 1) Search capabilities.
 
@@ -86,3 +92,8 @@ Features not implemented yet:
 3) Deletion of backed-up files/directories.
 
 Since this is meant to serve as an additional backup (for the case that the local backup fails) these features are not crucial, but eventually I'd like to implement them.
+
+Known bugs:
+
+==============
+Newline in a file name will render the log unreadable for future backups. A workaround for now is to fix the logfile manually (remove the newlines) and change the names of the files that contain newline, since probably it's there by accident anyhow.
