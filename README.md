@@ -7,7 +7,7 @@ Provides locally compressed & encrypted, file-level deduplicated backup to S3. (
 
 The files are not broken into parts, thus can be downloaded & decrypted manually anytime.
 
-IMPORTANT: Latest version (Oct 10, 2014) has an incompatible log format with previous versions. If you have a backup made with a previous version, you need to do "sed -i 's/0$/F/' <old log>".
+IMPORTANT: Latest version (Oct 10, 2014) has an incompatible log format with previous versions. If you have a backup made with a previous version, you need to do "sed -i 's/0$/F/' \<old log\>".
 
 Usage examples
 ==============
