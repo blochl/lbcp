@@ -1278,7 +1278,7 @@ def mainBCP(currentTime, maxDate, bucket, oldlogBucket, passwd, hashStr,
         if islink(f):
             linkList.append(realpath(f))
         else:
-            linkList.append('0')
+            linkList.append('F')
     
     linkList = np.array(linkList)
     
@@ -1300,12 +1300,12 @@ def mainBCP(currentTime, maxDate, bucket, oldlogBucket, passwd, hashStr,
         uploadInd = uploadInd[uploadIndPos]
         uploadInd = np.sort(uploadInd) # Just to preserve upload order - not must
         # Don't include symlinks
-        uploadInd = uploadInd[np.nonzero(linkList[uploadInd] == '0')[0]]
+        uploadInd = uploadInd[np.nonzero(linkList[uploadInd] == 'F')[0]]
     else:
         _, uploadInd = np.unique(serials, return_index=True)
         uploadInd = np.sort(uploadInd) # Just to preserve upload order - not must
         # Don't include symlinks
-        uploadInd = uploadInd[np.nonzero(linkList[uploadInd] == '0')[0]]
+        uploadInd = uploadInd[np.nonzero(linkList[uploadInd] == 'F')[0]]
     
     uploadNum = uploadInd.shape[0]
     print str(uploadNum) + " unique files found."
@@ -1470,8 +1470,8 @@ def mainRES(bucket, passwd, restoreThis, restorePath, previousLogFile,
     restoreIndices = restoreIndices[restoreDel > lastRestoreDate]
     # Extracting softlinks from general array
     restoreLinksTMP = restoreLinks[restoreIndices]
-    restoreLinkInd = restoreIndices[restoreLinksTMP != '0']
-    restoreIndices = restoreIndices[restoreLinksTMP == '0']
+    restoreLinkInd = restoreIndices[restoreLinksTMP != 'F']
+    restoreIndices = restoreIndices[restoreLinksTMP == 'F']
     
     # Softlinks array
     restoreLinks = [ [ restoreFiles[i], restoreLinks[i] ] for i in restoreLinkInd ]
@@ -1584,22 +1584,11 @@ else:
     previousLogFile, remoteLogName, selfDev = initVars[5:]
     # Importing previous backup data
     try:
-        prevFileList = np.loadtxt(previousLogFile, dtype = 'str',
-                                  delimiter = '//', usecols = (6,))
-        prevChecksums = np.loadtxt(previousLogFile, dtype = 'str',
-                                   delimiter = '//', usecols = (3,))
-        prevSerials = np.loadtxt(previousLogFile, dtype = 'str',
-                                 delimiter = '//', usecols = (4,))
-        prevLinks = np.loadtxt(previousLogFile, dtype = 'str',
-                               delimiter = '//', usecols = (7,))
-        prevBcpTimes = np.loadtxt(previousLogFile, dtype = 'int',
-                                  delimiter = '//', usecols = (0,))
-        prevMtimes = np.loadtxt(previousLogFile, dtype = 'int',
-                                delimiter = '//', usecols = (1,))
-        prevDelTimes = np.loadtxt(previousLogFile, dtype = 'int',
-                                  delimiter = '//', usecols = (2,))
-        prevSizes = np.loadtxt(previousLogFile, dtype = 'int',
-                               delimiter = '//', usecols = (5,))
+        prevBcpTimes, prevMtimes, prevDelTimes, prevChecksums, prevSerials, prevSizes, prevFileList, prevLinks = np.loadtxt(previousLogFile, dtype = 'str', comments=None, delimiter = '//', skiprows=1, unpack=True)
+        prevBcpTimes = prevBcpTimes.astype(int)
+        prevMtimes = prevMtimes.astype(int)
+        prevDelTimes = prevDelTimes.astype(int)
+        prevSizes = prevSizes.astype(int)
         lastModTime = np.amax(prevMtimes)
         lastBcpTime = np.amax(prevBcpTimes)
     except:
