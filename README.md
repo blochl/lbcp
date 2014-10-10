@@ -93,6 +93,8 @@ Features not implemented yet:
 
 Since this is meant to serve as an additional backup (for the case that the local backup fails) these features are not crucial, but eventually I'd like to implement them.
 
+==============
+
 Known bugs:
 
 ==============
